@@ -1,0 +1,104 @@
+.books article, .ranks article{border-left:1px solid #e2dcd7; min-height: 800px;}
+.tagbook article{padding-right:60px; padding-top:20px}
+.tagbook aside{padding-top:20px}
+.books .category-filter, .books .category-list, .ranks .category-list,.ranks article h2,.rank-toolbar{margin-left:45px;}
+/* åˆ†ç±»æµè§ˆé¡µé¢ç›®å½• */
+.category-filter .u-nav-crumbs{padding: 0 0 20px;color: #555;font-size: 14px;display:none}
+.category-filter .u-nav-crumbs .sep {margin: 0 10px;font-family: 'simsun';}
+.category-filter .u-nav-tab{margin-bottom:10px;position:relative;height:38px;line-height:38px;border-bottom:1px solid #dbd4cd}
+.category-filter .u-nav-tab li{width:64px;float:left;text-align:center;font-size:14px}
+.category-filter .u-nav-tab .crt a{font-weight:700;color:#333;}
+.category-filter .u-filter-price,.category-filter .u-nav-tab ul{float:left}
+.category-filter .u-nav-tab ul{margin-right:10px}
+.category-filter .icn-arrow{left:26px;position:absolute;line-height:0!important;font-size:0!important;overflow:hidden;color:#333;bottom:-1px;height:6px;width:12px}
+.category-filter .icn-arrow .arrow0,.category-filter .icn-arrow .arrow1{position:absolute;top:-6px;left:0;border:6px solid transparent;border-bottom-color:#dbd4cd}
+.category-filter .icn-arrow .arrow0{top:-5px;border-bottom-color:#fff;z-index:1}
+.category-filter .score .icn-arrow{left:90px}
+.category-filter .tops .icn-arrow{left:154px}
+.category-filter .price .icn-arrow{left:218px}
+.category-filter .u-aimg{margin-left:45px;margin-bottom:10px;padding:25px 30px 0;}
+.category-filter .u-aimg li{width:33.3%;}
+.category-filter .cnt{min-height:620px;}
+.category-nav li{position:relative;zoom:1;margin-top:-1px;}
+.category-nav li a{display:block;padding-left:36px;padding-right:50px;margin:0;border:0;font-size:14px;background:none;}
+.category-nav li a:hover{color:#FF454A}
+.category-nav li.all a{padding-left:15px;}
+.category-nav li .wrap{padding:9px 0;margin-right:18px;border-bottom: 1px dashed #e2dcd7;}
+.category-nav li .checked{padding-bottom:10px;margin:0;color:#FF454A;background-color:#f4f2ef;border-right:4px solid #FF454A;border-bottom:0;}
+.category-nav .level2 a{padding-left:54px;}
+.category-nav .level2{display:none;}
+.category-nav .crt{padding:0;}
+.category-nav .crt .level2{display:block;}
+.category-nav .num{position:absolute;top:11px;right:18px;color:#a99a8f;font-size:11px;font-weight:400;font-family:Tahoma;}
+.category-nav b{cursor:pointer;position:absolute;left:0px;top:0px;width:36px;height:40px;background:url(../images/cate.png) 15px 14px no-repeat;}
+.category-nav .crt b{background-position:-20px 12.5px;}
+.category-nav b::after {display: table;content: '';line-height: 0;}
+.category-ad{width:212px;margin-top:40px;}
+.category-ad .u-aimg{width:206px;height:auto;margin:0 auto;padding-top:20px;}
+.category-ad .u-aimg a,.category-ad .u-aimg img{width:200px;height:108px;background:none;}
+.category-ad .u-aimg li{width:206px;}
+.category-ad .u-aimg a{padding-bottom:12px;}
+
+.category-list .item{padding:15px 0;overflow:hidden;zoom:1;margin-bottom:0;border-bottom:1px dashed #ddd;color:#666;}
+.category-list .order{width:40px;float:left;font: 400 18px/20px 'Century Gothic';}
+.category-list .hot{color: #ed6c00; font-weight: 700;}
+.category-list .cover,.category-list .cover img{height:134px;width:90px}
+.category-list .info{overflow:hidden;zoom:1}
+.category-list .price-tag{float:right;vertical-align:middle;color:#999}
+.category-list .title{font-size:15px;margin:0;word-wrap:break-word;-ms-word-wrap:break-word}
+.category-list .info p{font-size:12px;margin:0;line-height:1.8}
+.category-list .label,.category-list .labeled-text .plain,.category-list .labeled-text a{margin-right:5px}
+.category-list .rating{margin-top:5px;}
+.category-list .rating-average{color:#FF7437}
+.category-list .info .article-desc-brief{margin-top:10px;word-wrap:break-word;-ms-word-wrap:break-word;overflow:hidden;display:block}
+
+
+.lastbook dl{float:left;margin:0 15px 10px 0;overflow:hidden;text-align:center;width:90px}
+.lastbook dl:nth-child(4n+3){margin-right:0;clear:right}
+.lastbook dl dt{overflow:hidden;height:100px}
+.lastbook dl dt a{width:90px;text-align:center}
+.lastbook dl dt a img{width:70px}
+.lastbook dl dd{margin:0;padding-top:3px;overflow:hidden;color:#999}
+
+aside .intro{margin-top:10px;font-size:12px}
+aside .intro div{text-indent: 2em;}
+aside .intro p{font-size:12px}
+aside .intro:after{}{clear:both;content:'.';display:block;height:0;overflow:hidden;visibility:hidden;zoom:1}
+
+/* æ¦œå• */
+.ranks h2{margin-bottom:5px;font-size:24px;color:#afa298;line-height:48px;font-weight:400}
+.ranks .ritm h2{margin-left:0}
+.ranks .ritm h2, .ranks article h2{color:#666}
+.rank-nav li,.rank-nav li a{line-height:50px;font-size:16px}
+.rank-nav li a{display:block;padding-left:28px}
+.rank-nav .crt{background:#f4f2ef}
+.rank-nav .crt a{color:#ed6c00;font-weight:700;border-right:4px solid #ed6c00;cursor:default}
+.rank-nav .level2 li a{padding-left:60px}
+.rank-area .ritm{float:left;width:334px;padding:0 0 20px 35px}
+.rank-area .u-ttl{position:relative;height:48px;line-height:48px;padding:0;margin-bottom:0;border-bottom:1px solid #e0dad5;overflow:hidden}
+.rank-area .u-ttl h2{font-weight:400;font-size:24px;line-height:1.5em}
+.rank-area .u-ttl .act{right:5px;position:absolute;top:4px}
+.rank-area .u-txtlst .itm{position:relative;zoom:1;padding:12px 0;line-height:30px;border-bottom:1px solid #e0dad5}
+.rank-area .itm em{position:absolute;top:18px;left:0;width:26px;text-align:center;font:400 14px/20px 'Century Gothic';font-size:16px}
+.rank-area .itm .hot{font-weight:700;color:#ed6c00}
+.rank-area .itm .title{width:234px;font-size:14px;display:block;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;padding-left:30px}
+.rank-area .u-txtlst .u-author{position:absolute;top:20px;right:0;text-align:right;color:#999;width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;line-height:18px;margin-bottom:0}
+.rank-area .u-author span{margin-right:5px}
+
+.rank-toolbar{min-height:40px;background:#f7f6f2;margin-bottom:10px}
+.rank-toolbar .tool-box{position:relative;padding:0 12px}
+.rank-tab-box{height:40px;background:#f7f6f2;float:left}
+.rank-tab-box a{font:14px/40px PingFangSC-Regular,'-apple-system',Simsun;display:inline-block;padding:0 12px;text-align:center}
+.rank-tab-box a.act{font-weight:700;height:39px;color:#ed4259}
+.rank-toolbar .btn-box{float:right}
+.lbf-combobox{width:84px;margin-top:5px;display:inline-block}
+.lbf-combobox .lbf-combobox-label{width:36px;font-family:PingFangSC-Regular,'-apple-system',Simsun;font-size:12px;font-weight:400;line-height:18px;height:18px;position:relative;overflow:hidden;display:inline-block;margin-bottom:0;padding:4px 12px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;padding-right:36px;padding-left:10px;color:grey;text-align:left;vertical-align:middle;white-space:nowrap;border:1px solid transparent;-webkit-border-radius:1px;-moz-border-radius:1px;border-radius:1px;background:0 0;touch-action:manipulation}
+.lbf-combobox-label.lbf-combobox-on,.lbf-combobox-on:hover{background:#fff;-webkit-box-shadow:0 0 4px rgba(0,0,0,.2);box-shadow:0 0 4px rgba(0,0,0,.2)}
+.lbf-combobox .lbf-combobox-label .lbf-combobox-caption{display:inline-block;vertical-align:top;white-space:nowrap}
+.lbf-combobox .lbf-combobox-label .lbf-combobox-icon{position:absolute;width:0;height:0;top:12px;right:15px;border-top:4px solid #a6a6a6;border-right:4px solid transparent;border-bottom:0 none;border-left:4px solid transparent}
+.lbf-combobox .lbf-combobox-label .lbf-combobox-icon::before{visibility:hidden;-webkit-transition:.3s ease-in;-o-transition:.3s ease-in;transition:.3s ease-in}
+.lbf-combobox-label ::-moz-focus-inner{padding:0;border:0}
+.lbf-combobox-panel{width:84px;font-size:12px;overflow:auto;-webkit-transition:opacity .218s;-o-transition:opacity .218s;transition:opacity .218s;border:1px solid #eee\9;border-top:1px solid #eee;-webkit-border-radius:1px;-moz-border-radius:1px;border-radius:1px;background:#fff;-webkit-box-shadow:0 2px 4px rgba(0,0,0,.2);box-shadow:0 2px 4px rgba(0,0,0,.2);float:left;position:absolute}
+.lbf-combobox-panel .lbf-combobox-item{font-family:PingFangSC-Regular,'-apple-system',Simsun;line-height:24px;display:block;height:24px;padding:3px 12px;cursor:pointer;text-align:left;white-space:nowrap;color:grey}
+.lbf-combobox-panel.year{top:33px;right:99px;display:none;z-index:83338}
+.lbf-combobox-panel.day{top:33px;right:12px;display:none;z-index:83712;max-height:300px}

@@ -1,0 +1,70 @@
+section h3{font-size:18px;color:#444}
+section h4{font-size:14px}
+section .hd{margin-bottom:9px}
+.kinds-list::after{clear:both;content:'.';display:block;height:0;overflow:hidden;visibility:hidden}
+.more-links{position:absolute;top:6px;right:3px}
+.kinds-list li{float:left;width:50%;padding:0;margin:0;border-bottom:1px dashed #eee;zoom:1}
+.kinds-list a{padding:12px 5px;margin:1px 0;display:block;font-size:13px;height:13px;line-height:1}
+.cover-list .author,.cover-list .panel,.cover-list .price,.cover-list .title{text-align:left;color:#afafaf}
+.cover-list .author,.cover-list .cover,.cover-list .pirce,.cover-list .title{margin-bottom:5px}
+.cover-list .title{font-size:14px;color:#825d5b}
+.cover-list .title:hover{color:#fff}
+.cover-list .orig-author{margin-right:5px}
+.cover-list .type{color:#999;font-size:12px;margin-left:3px;font-weight:400}
+.cover-list .cover{float:none;position:relative;z-index:2;height:164px;width:110px;margin-right:0}
+.cover-list .panel{background:#fff;height:130px;width:85px;padding:10px 15px 10px 10px;margin-top:-150px;display:none;position:relative;z-index:20;cursor:pointer;color:#111}
+.cover-list .panel .category-type{margin-bottom:8px;font-weight:700;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cover-list .panel:hover{color:#111}
+.cover-list .bundle-cover .panel{width:89px}
+.price-tag{line-height:1;color:#4b4b4b;font-size:14px}
+.price-tag .original-tag{font-size:12px;font-weight:400;color:#afafaf}
+.price-tag .discount-price{color:#4b4b4b}
+.showcase h4{font-size:16px}
+.showcase .cover-list li{width:110px;margin-right:12px;background-color:#fff}
+.showcase .info{position:relative;text-align:left;}
+.showcase .bd{position:relative}
+.showcase .price-tag{margin-right:0}
+.main aside{float:left}
+.main article{float:right}
+.slide-show{overflow:hidden}
+.slide-show .one-slide:hover{background:0 0}
+.slide-screen{width:696px;height:205px;overflow:hidden;position:relative}
+.ua-ie8 .slide-screen .slide-item{width:696px}
+.slide-action{overflow:hidden;margin-top:10px;float:right}
+.slide-btns,.slide-controls{float:right;vertical-align:middle}
+.slide-btns{padding-left:6px;height:20px}
+.slide-btns .next,.slide-btns .prev{width:20px;height:20px;line-height:20px;text-align:center;display:inline-block}
+.slide-btns .next,.slide-btns .next:hover,.slide-btns .prev,.slide-btns .prev:hover{background:url(/f/ark/53608a571543340b775b35e467b2403ec62f186f/pics/slide-btns.png)}
+.slide-btns .prev{margin-right:5px}
+.slide-btns .prev,.slide-btns .prev:hover{background-position:center 0}
+.slide-btns .next,.slide-btns .next:hover{background-position:center -29px}
+.slide-controls{padding-top:8px}
+.slide-controls li{display:inline-block;margin-right:6px}
+.ua-ie6 .slide-controls a,.ua-ie6 .slide-controls a.active,.ua-ie6 .slide-controls a.active:hover,.ua-ie6 .slide-controls a:hover,.ua-ie7 .slide-controls a,.ua-ie7 .slide-controls a.active,.ua-ie7 .slide-controls a.active:hover,.ua-ie7 .slide-controls a:hover,.ua-ie8 .slide-controls a,.ua-ie8 .slide-controls a.active,.ua-ie8 .slide-controls a.active:hover,.ua-ie8 .slide-controls a:hover{background:url(/f/ark/39c02d82229e897d7a81d8a080a5a7dfeab82249/pics/slide-control-dots.gif)}
+.slide-controls a{-moz-border-radius:50%;border-radius:50%;width:6px;height:6px;line-height:6px;text-align:center;background:#d7d7d7;display:block;overflow:hidden;outline:0}
+.ua-ie6 .slide-controls a,.ua-ie7 .slide-controls a,.ua-ie8 .slide-controls a{background-position:center -23px}
+.slide-controls a.active{background:#8a8a8a}
+.ua-ie6 .slide-controls a.active,.ua-ie7 .slide-controls a.active,.ua-ie8 .slide-controls a.active{background-position:center 0}
+.slide-list{position:relative}
+.slide-list .slide-item{display:inline-block;vertical-align:top}
+.rankings .tabs{margin:0 0 10px 10px}
+.rankings .tabs li{display:inline;cursor:pointer;color:#825d5b;font-size:14px;padding:0 10px;border-left:1px solid #ddd}
+.rankings .tabs li:last-child{border-right:1px solid #ddd}
+.rankings .tabs .tab-activated{color:#afafaf}
+.rankings .title{font-size:14px}
+.rankings .author{color:#afafaf}
+.rankings .list li{float:left;padding:4px 0;border-bottom:1px dashed #ddd}
+.rankings .rank-num{float:left;width:20px;font-size:14px;text-align:center}
+.rankings .book-info{float:left;width:280px}
+.section-magazine .cover{height:70px}
+.section-magazine .cover-list li{height:113px}
+.section-magazine .cover-list li .border-wrap{height:93px}
+.section-publisher .cover{height:70px}
+.section-publisher .cover-list li{height:90px}
+.section-publisher .cover-list li .border-wrap{height:70px}
+.slide-10-items .slide-item{width:705px}
+.hottags-list li{padding:0;margin-bottom:15px;border-bottom:1px dashed #ddd}
+.hottags-list li ul li{float:left;display:inline;width:auto;margin:0;padding:0;border:none}
+.hottags-list li ul li.tag_title{display:block;float:none}
+.tag,.tag:link,.tag:visited{width:auto;word-break:keep-all;white-space:nowrap;background-color:#f5f5f5;color:#37A;font-size:13px;padding:2px 11px 0;display:inline-block;margin:0 3px 5px 0;line-height:20px}
+.more_tag,.more_tag:active,.more_tag:hover,.more_tag:link,.more_tag:visited{color:#aaa}

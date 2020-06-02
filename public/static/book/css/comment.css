@@ -1,0 +1,78 @@
+/*comment */
+.comment-send{
+    margin: 10px 0;
+}
+
+.comment .comment-head span{
+    font-size: 18px;
+    margin-right: 20px;
+}
+.comment .list-item{
+    border-top: 1px dashed #ddd;
+    padding: 15px 0;
+}
+.user-face{
+    float: left;
+    margin: 3px 0;
+    position: relative;
+    display: inline-block;
+}
+.user-face .user-head{
+    width: 48px;
+    height: 48px;
+}
+.comment .list-item .content-wrap{
+    margin-left: 68px;
+}
+.comment .list-item .content-wrap .user-name{
+    padding-right: 10px;
+    font-size: 14px;
+    color: #6a6f77;
+    font-weight: bold;
+}
+.comment .list-item .content-wrap .info{
+    margin-left: 68px;
+    color: #99a2aa;
+    line-height: 26px;
+}
+.comment .list-item .content-wrap .info .comment-info{
+    margin: 0 20px;
+    padding: 5px;
+}
+.comment .list-item .content-wrap .info .reply:hover,.comment .list-item .content-wrap .info .del:hover{
+    border-radius:4px;
+    background: #fbf8f8;
+    color: #00A2D4;
+    cursor: pointer;
+}
+
+.comment .list-item .reply-wrap .user-face .user-head{
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+}
+.comment .list-item .reply-wrap .user-name,.comment .list-item .reply-wrap .text{
+    display: inline-block;
+    margin:5px 0;
+}
+
+
+
+.comment-send .textarea-container .ipt-txt{
+    width: 400px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 20px;
+    background: #f4f5f7;
+    border-radius:4px;
+    border:1px solid #c8cccf;
+    color:#6a6f77;
+    -web-kit-appearance:none;
+    -moz-appearance: none;
+    outline:0;
+    padding:0 1em;
+    text-decoration:none;
+}
+.comment-send .btn{
+    margin:15px 0;
+}
