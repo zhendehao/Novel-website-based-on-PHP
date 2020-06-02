@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    a[class="button-selectimg"] {
+        color: #00A2D4;
+        padding: 4px 6px;
+        border: 1px dashed #00A2D4;
+        border-radius: 2px;
+        text-decoration: none;
+    }
+
+    input[id="avatval"] {
+        padding: 3px 6px;
+        padding-left: 10px;
+        border: 1px solid #E7EAEC;
+        width: 230px;
+        height: 25px;
+        line-height: 25px;
+        border-left: 3px solid #3FB7EB;
+        background: #FAFAFB;
+        border-radius: 2px;
+    }
+
+    input[type='file'] {
+        border: 0px;
+        display: none;
+    }
+</style>
+
+<body>
+
+<form id="upform" enctype='multipart/form-data' style="display:none;">
+
+    <p class="form-group">
+
+        <label for="upteainput">上传文件</label>
+
+        <input id="upteainput" name="upfile" type="file" class="form-control-file">
+
+    </p></form><button id="uptea" type="button" class="btn btn-primary">上传</button>
+
+
+
+<div class="input-file">
+    <input type="text" id="avatval" placeholder="请选择文件···" readonly="readonly" />
+    <input type="file" name="avatar" id="avatar"/>
+    <a href="javascript:void(0);" onclick="sel()" class="button-selectimg" id="avatsel1">选择文件</a>
+
+</div>
+
+
+
+</body>
+</html>
+<script>
+    window.onload=function sel(){
+        document.getElementById('avatsel1').onclick= function(){
+            document.getElementById('avatar').click();
+        };
+        document.getElementById('#avatval').onclick=function(){
+            document.getElementById('avatar').click();
+        };
+        document.getElementById('avatar').change=function(){
+            document.getElementById('avatsel1').val($(this).val());
+        };
+    };
+    $("#uptea").click(function () {
+
+        $("#upteainput").click();
+
+    });//下面是ajax上传文件的代码，此处就不做过多讲解。 $("#upteainput").change(function () {//如果上传文件的input内容发生了变化
+
+    $val = $("#upteainput").val();            if ($val != '') {//要上传的文件名不为空
+
+        $data = new FormData($("#upform")[0]);//创建一个formdata对象
+
+        $host = window.location.host;
+
+        $.ajax({
+
+            url: "http://" + $host + "/home/front/up-tea",
+
+            type: "POST",
+
+            data: $data,
+
+            processData: false,
+
+            contentType: false,
+
+            dataType: "json",
+
+            error: function () {
+
+                alert('Error loading XML document');
+
+            },
+
+            success: function (data, status) {//如果调用php成功
+
+                if (data.errno != 0) {                            if (data.errmsg != '') {
+
+                    alert(data.errmsg);
+
+                } else {
+
+                    alert("系统错误");
+
+                }
+
+                }
+
+                console.log(data);
+
+                alert("导入成功");
+
+                window.location.reload();
+
+            }
+
+        });
+
+    }
+
+    });
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>作者登录</title>
+    <meta name="content-type"; charset="UTF-8">
+</head>
+<link type="text/css" rel="stylesheet" href="/static/author/css/login.css">
+<body>
+<div class="content" align="center"> <!--头部-->
+
+    <div class="header"> <h1>作者登录</h1> </div>
+    <!--中部-->
+    <div class="middle">
+        <form id="loginform" action="{:url('index/check')}" method="post">
+            <table border="0">
+                <tr>
+<!--                    <input value="author" type="hidden" name="role">-->
+                    <td>账号：</td>
+                    <td> <input type="text" id="name" name="role_id" required="required" > </td>
+                </tr>
+                <tr>
+                    <td>密   码：</td> <td><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td>验证码：</td>
+                    <td><input name="code" placeholder="请填写右侧的验证码"/></td>
+                    <td><img src="{:captcha_src()}" alt="captcha" class="passcode" style="height: 43px;cursor: pointer;"
+                             onclick="this.src=this.src+'?'"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" style="color:red;font-size:10px;"> <!--提示信息-->
+                        {$info}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    <input type="submit" id="login" name="login" value="登录">
+                        <input type="reset" id="reset" name="reset" value="重置"> </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"> 还没有账号，快去<a href="{:url('author/index/register')}">注册</a>吧</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!--脚部-->
+<!--    <div class="footer"> <small>Copyright &copy; 版权所有·欢迎翻版 </div> </div>-->
+</div>
+</body>
+</html>

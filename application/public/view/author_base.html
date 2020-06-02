@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+    {block name="css"}<link>{/block}
+    {block name="js"}{/block}
+</head>
+<body>
+<div class="wrapper">
+    {block name="header"}{include file="public@author_header" /}{/block}
+
+    {block name="main"} {/block}
+
+    {block name="footer"}{include file="public@footer" /}{/block}
+</div>
+</body>
+</html>

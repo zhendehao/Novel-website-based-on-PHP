@@ -1,0 +1,29 @@
+<aside class="col col3">
+    <nav class="category-nav">
+        <ul class="w-list">
+            <li class="level1 crt">
+                <div class="wrap"><b></b><a href="{:url('admin/user/index')}" hidefocus="hidefocus"><span>个人信息</span><em class="num"></em></a></div>
+            </li>
+            {if condition="$Think.session.level==0"}
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/add_admin')}" hidefocus="hidefocus"><span>添加管理员</span><em class="num"></em></a></div>
+            </li>
+            {/if}
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/manage_member')}" hidefocus="hidefocus"><span>会员管理</span><em class="num"></em></a></div>
+            </li>
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/manage_author')}" hidefocus="hidefocus"><span>作者管理</span><em class="num"></em></a></div>
+            </li>
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/manage_books')}" hidefocus="hidefocus"><span>电子书管理</span><em class="num"></em></a></div>
+            </li>
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/manage_notice')}" hidefocus="hidefocus"><span>通知管理</span><em class="num"></em></a></div>
+            </li>
+            <li class="level1">
+                <div class="wrap"><b></b><a href="{:url('admin/user/modify')}" hidefocus="hidefocus"><span>修改密码</span><em class="num"></em></a></div>
+            </li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,87 @@
+{extend name="public@author_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/author/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/author/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@author_aside" /}
+        <article class="col col10">
+            <section class="showcase topic-list">
+                <div class="hd lined">
+                    <h3>我的作品</h3>
+                    <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                </div>
+                <div class="bd">
+                    <div class="carousel">
+                        <div class="slide-list">
+                            <ul class="slide-item list-col list-col5 cover-list">
+
+                                {volist name="works" id="article"}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="/index.php/article/{$article.article_id}" class="pic" target="_self"><img src="{$article.thumb}" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h3 class="title"><a href="/index.php/article/{$article.article_id}">{$article.title}</a></h3>
+                                        </div>
+                                        <div class="operation">
+                                            <a class="add" href="{:url('author/author/add_chapter',array('article_id'=>$article.article_id))}">添加章节</a>
+                                            <a class="del" href="{:url('author/del/Del',array('article_id'=>$article.article_id,'force'=>0))}">暂不发布</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/volist}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="{:url('author/author/add_article')}" class="pic" target="_self"><img src="/static/author/images/add.jpg" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="title"><a href="{:url('author/author/add_article')}">新增作品</a></h4>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div align="center">{$page1}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd lined">
+                    <h3>暂不发布的作品</h3>
+                </div>
+                <div class="bd">
+                    <div class="carousel">
+                        <div class="slide-list">
+                            <ul class="slide-item list-col list-col5 cover-list">
+
+                                {volist name="softList" id="article"}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="/index.php/article/{$article.article_id}" class="pic" target="_self"><img src="{$article.thumb}" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h3 class="title"><a href="/index.php/article/{$article.article_id}">{$article.title}</a></h3>
+                                        </div>
+                                        <div class="operation">
+                                            <a class="add" href="{:url('author/author/add_chapter',array('article_id'=>$article.article_id))}">添加章节</a>
+                                            <a class="add" href="{:url('author/del/recover')}">发布</a>
+                                            <a style="display: block" class="del" href="{:url('author/del/Del',array('article_id'=>$article.article_id,'force'=>1))}">删除文章</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                            <div align="center">{$page2}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+
+
+</div>
+{/block}

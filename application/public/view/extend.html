@@ -1,0 +1,71 @@
+{extend name="public@base" /}
+{block name="header"}
+<header>
+    <div class="top-info">
+        <div class="inner">
+            <h1 title="一起悦读网" class="logo"><a href="/index.php">一起悦读网</a></h1>
+            <form action="/search/" method="get" id="frm-search">
+                <input type="text" name="q" maxlength="60" size="22" value="" placeholder="搜索电子书"  id="input-query">
+                <input type="submit" value="搜索" id="btn-search">
+            </form>
+        </div>
+    </div>
+    <nav class="nav nav-store">
+        <div class="inner">
+            <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" class="nav-main items">
+                <li>
+                    <a href="/index.php" itemprop="url"><span itemprop="name">首页</span></a>
+                </li>
+                <li>
+                    <a href="{:url('book/Novel/index')}" itemprop="url"><span itemprop="name">流行小说</span></a>
+                </li>
+                <li>
+                    <a href="/book/guowai/" itemprop="url"><span itemprop="name">国外小说</span></a>
+                </li>
+                <li>
+                    <a href="/book/sheke/" itemprop="url"><span itemprop="name">社科人文</span></a>
+                </li>
+                <li>
+                    <a href="/book/mingzhu/" itemprop="url"><span itemprop="name">国学名著</span></a>
+                </li>
+                <li>
+                    <a href="/book/ertong/" itemprop="url"><span itemprop="name">儿童读物</span></a>
+                </li>
+                <li>
+                    <a href="/book/jingji/" itemprop="url"><span itemprop="name">经济管理</span></a>
+                </li>
+                <li>
+                    <a href="/book/zhuanji/" itemprop="url"><span itemprop="name">纪实传记</span></a>
+                </li>
+                <li>
+                    <a href="/book/zawen/" itemprop="url"><span itemprop="name">杂文选集</span></a>
+                </li>
+                <li>
+                    <a href="/book/waiyu/" itemprop="url"><span itemprop="name">外语读本</span></a>
+                </li>
+                <li>
+                    <a href="/book/lizhi/" itemprop="url"><span itemprop="name">成功励志</span></a>
+                </li>
+            </ul>
+            <ul class="items items-minor user-info">
+                <li>
+                    <a href="#" class="login isLogin">会员登录</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+{/block}
+
+{block name="footer"}
+<footer>
+    <div class="inner">
+        <div class="copyright">© 2015 - 2019 shubang.net, all rights reserved test<br>
+            <a target="_blank" href="http://www.beian.miit.gov.cn" rel="nofollow">浙ICP备11048508号</a>
+        </div>
+        <div class="ft-nav">
+            <a href="/about/contact.html">联系我们</a>·<a href="/about/copyright.html">版权声明</a>
+        </div>
+    </div>
+</footer>
+{/block}

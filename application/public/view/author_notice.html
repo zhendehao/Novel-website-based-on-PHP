@@ -1,0 +1,28 @@
+<aside class="col col3">
+    <nav class="category-nav">
+        <ul class="w-list">
+            <li class="level1">
+                <div class="wrap ">
+                    <b>
+                        {if condition="$sysInfoNum>0"}
+                        <div class="data-num">{$sysInfoNum}</div>
+                        {/if}
+                    </b>
+                    <a href="{:url('author/Author/notice')}" hidefocus="hidefocus"><span>系统通知</span></a>
+                </div>
+            </li>
+            <li class="level1" hidden>
+                <div class="wrap checked">
+                    <b>
+                        {if condition="$userInfoNum>0"}
+                        <div class="data-num">{$userInfoNum}</div>
+                        {/if}
+                    </b>
+                    <a href="{:url('author/Author/user_info')}" hidefocus="hidefocus"><span>我的消息</span></a>
+                </div>
+            </li>
+
+
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,30 @@
+{extend name="public@base" /}
+{block name="css"}
+<link rel="stylesheet" href="/static/book/css/booklist.css">
+<link rel="stylesheet" href="/static/index/css/gen.css">
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@book_aside" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <ul>
+                {volist name="list" id="book"}
+                <li class="item">
+                    <div class="cover shadow-cover"><a href="/index.php/article/{$book.article_id}" target="_blank"><img src="{$book.thumb}" itemprop="image"></a></div>
+                    <div class="info"><span class="price-tag"></span>
+                        <div class="title"><a href="/index.php/article/{$book.article_id}" target="_blank">{$book.title}</a></div>
+                        <p><span><span class="label">作者：</span><span class="labeled-text"><a href="/index.php/portfolio/{$book.author_id}">{$book->author->nickname}</a></span></span></p>
+                        <p><span class="category"><span class="label">类别：</span><span class="labeled-text"><span itemprop="genre">{$book.category_id}</span></span></span></p>
+
+                        <div class="summary">简介：{$book.summary}</div>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div align="center">{$page}</div>
+    </article>
+</div>
+
+{/block}

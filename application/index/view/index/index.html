@@ -1,0 +1,144 @@
+{extend name="public@base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/index/css/gen.css" />
+<link rel="stylesheet" type="text/css" href="/static/index/css/home.css" />
+{/block}
+{block name="main"}
+    <div class="main">
+        <aside class="col col4">
+            <section class="kinds">
+                <div class="hd lined">
+                    <h3>分类</h3>
+                    <span class="more-links"><a href="/book/">全部电子书</a></span>
+                </div>
+                <div class="bd">
+                    <ul class="list kinds-list">
+                        <li><a href="index.php/category/10101">流行小说</a></li>
+                        <li><a href="index.php/category/10102">国外小说</a></li>
+                        <li><a href="index.php/category/10104">国学名著</a></li>
+                        <li><a href="index.php/category/10103">社科人文</a></li>
+                        <li><a href="index.php/category/10105">儿童读物</a></li>
+                        <li><a href="index.php/category/10107">纪实传记</a></li>
+                        <li><a href="index.php/category/10106">杂文选集</a></li>
+                        <li><a href="index.php/category/10108">经济管理</a></li>
+                        <li><a href="index.php/category/10109">外语读本</a></li>
+                        <li><a href="index.php/category/10110">成功励志</a></li>
+                        <li><a href="index.php/category/10111">言情小说</a></li>
+                        <li><a href="index.php/category/10112">科幻小说</a></li>
+                        <li><a href="index.php/category/10113">惊悚悬疑</a></li>
+                        <li><a href="index.php/category/10116">历史小说</a></li>
+                        <li><a href="index.php/category/10115">侦探推理</a></li>
+                        <li><a href="index.php/category/10114">武侠小说</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="rankings tabs-container">
+                <div class="hd lined">
+                    <h3>收藏排行</h3>
+                    <span class="more-links"><a href="#">更多排行</a></span>
+                </div>
+                <div class="bd">
+                    <ul class="list tab-panel all-top" style="display: block;">
+                        {foreach $favList as $key=>$book}
+                        <li>
+                            <span class="rank-num">{$key+1}.</span>
+                            <div class="book-info">
+                                <a class="title" href="/index.php/article/{$book.article_id}">{$book.title}</a>
+                                <div class="author"><a class="author" href="/index.php/portfolio/{$book.author_id}">{$book->author->nickname}</a></div>
+                            </div>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </section>
+        </aside>
+
+        <article class="col col8">
+            <section class="showcase topic-list">
+                <div class="hd lined">
+                    <h3>最新上架</h3>
+                    <span class="more-links"><a href="#">更多新书</a></span>
+                </div>
+                <div class="bd">
+                    <div class="carousel">
+                        <div class="slide-list">
+                            <ul class="slide-item list-col list-col5 cover-list">
+                                {volist name="newList" id="new"}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="/index.php/article/{$new.article_id}" class="pic" target="_self"><img src="{$new.thumb}" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="title"><a href="/index.php/article/{$new.article_id}">{$new.title}</a></h4>
+                                            <div class="author">
+                                                <span class="orig-author"><a class="author" href="/index.php/portfolio/{$new.author_id}"> {$new->author->nickname}</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="showcase topic-list">
+                <div class="hd lined">
+                    <h3>热门电子书</h3>
+                    <span class="more-links"><a href="#">更多热门</a></span>
+                </div>
+                <div class="bd">
+                    <div class="carousel">
+                        <div class="slide-list">
+                            <ul class="slide-item list-col list-col5 cover-list">
+                                {volist name="hotList" id="hot"}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="/index.php/article/{$hot.article_id}" class="pic" target="_self"><img src="{$hot.thumb}" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="title"><a href="/index.php/article/{$hot.article_id}">{$hot.title}</a></h4>
+                                            <div class="author"><span class="orig-author"><a class="author" href="/index.php/portfolio/{$hot.author_id}" >{$hot->author->nickname}</a></span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="showcase topic-list">
+                <div class="hd lined">
+                    <h3>店家推荐</h3>
+                    <span class="more-links"><a href="#">更多</a></span>
+                </div>
+                <div class="bd">
+                    <div class="carousel">
+                        <div class="slide-list">
+                            <ul class="slide-item list-col list-col5 cover-list">
+                                {volist name="recommendList" id="recommend"}
+                                <li>
+                                    <div class="border-wrap">
+                                        <div class="cover shadow-cover ">
+                                            <a href="/index.php/article/{$recommend.article_id}" class="pic" target="_self"><img src="{$recommend.thumb}" width="110px" height="164px"></a>
+                                        </div>
+                                        <div class="info">
+                                            <h4 class="title"><a href="/index.php/article/{$recommend.article_id}">{$recommend.title}</a></h4>
+                                            <div class="author"><span class="orig-author"><a class="author" href="/index.php/portfolio/{$recommend.author_id}" >{$recommend->author->nickname}</a></span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/volist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </div>
+
+{/block}

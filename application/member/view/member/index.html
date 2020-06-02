@@ -1,0 +1,40 @@
+{extend name="public@member_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/member/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/member/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@member_aside" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <form class="user-info" action="{:url('member/changeInfo')}">
+                <div class="item user-photo" style="align-items: center">
+                    <label class="label" style="float: left;">头像：</label>
+                    <div class="labeled-text"><a href="{:url('member/thumb')}" class="cover"><img src="{$Think.session.thumb}"></a></div>
+                </div>
+                <div class="item user-id">
+                    <label class="label">账号：</label>
+                    <label class="labeled-text">{$Think.session.role_id}</label>
+                    <input type="hidden" name="role" value="member">
+                    <input type="hidden" name="role_id" value="{$Think.session.role_id}">
+                    <input type="hidden" name="return" value="{:urlencode('member/index')}">
+                </div>
+                <div class="item user-name">
+                    <label class="label">昵称：</label>
+                    <input class="labeled-text" placeholder="{$Think.session.nickname}" name="nickname">
+                </div>
+
+                <div class="item user-sign">
+                    <label class="label">个性签名：</label>
+                    <input class="labeled-text" placeholder="{$Think.session.sign}" style="width: 500px;height: 50px;" name="sign">
+                </div>
+                <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                <div class="item submit" align="center">
+                    <input type="submit" value="保存" class="btn btn-green">
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+{/block}

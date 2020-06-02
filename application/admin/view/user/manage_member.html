@@ -1,0 +1,64 @@
+{extend name="public@admin_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@admin_aside" /}
+    <div>
+        <article class="col col10">
+            <div class="bd category-list">
+                <div class="item" align="center">
+                    <form action="/search/" method="get" id="frm-search">
+                        <input type="text" name="q" maxlength="60" size="20" value="" placeholder="搜索会员" autocomplete="off" id="admin-query">
+                        <input type="submit" value="搜索" id="btn-search">
+                    </form>
+                </div>
+                <div class="user-list">
+                    <div class="info">
+                        <span style="font-size:20px;color: red">{$info}</span>
+
+                    </div>
+                    <ul>
+                        {volist name="memberList" id="member"}
+                        <li class="item">
+                            <div class="cover shadow-cover"><a href="#" target="_blank"><img src="{$member.thumb}" itemprop="image"></a></div>
+                            <div class="info"><span class="price-tag"></span>
+                                <div class="user-name">会员昵称：{$member.nickname}</div>
+                                <p>
+                                    <span class="label"><a href="{:url('admin/user/initPass',array('role_id'=>$member['role_id'],'role'=>'member','return'=>urlencode('user/manage_member')))}" >初始化密码</a></span>
+                                    <span class="label"><a href="{:url('admin/Del/del',array('role_id'=>$member['role_id'],'role'=>'member','return'=>urlencode('user/manage_member'),'force'=>0))}">软删除用户</a></span>
+                                    <span class="label"><a href="{:url('admin/user/notice',array('role_id'=>$member['role_id'],'nickname'=>$member.nickname))}">发送通知</a> </span>
+                                </p>
+                            </div>
+                        </li>
+                        {/volist}
+                    </ul>
+                    <div align="center">{$page1}</div>
+                </div>
+                <h3 class="item">软删列表：</h3>
+                <div class="soft-del-list">
+                    <ul>
+                        {volist name="softDelList" id="member"}
+                        <li class="item">
+                            <div class="cover shadow-cover"><a href="#" target="_blank"><img src="{$member.thumb}" itemprop="image"></a></div>
+                            <div class="info"><span class="price-tag"></span>
+                                <div class="user-name">会员昵称：{$member.nickname}</div>
+                                <p>
+                                    <span class="label"><a href="{:url('admin/Del/del',array('role_id'=>$member['role_id'],'role'=>'member','return'=>urlencode('user/manage_member'),'force'=>1))}">删除</a></span>
+                                    <span class="label"><a href="{:url('admin/Del/recover',array('role_id'=>$member['role_id'],'role'=>'member','return'=>urlencode('user/manage_member')))}">恢复</a></span>
+                                </p>
+                            </div>
+                        </li>
+                        {/volist}
+                    </ul>
+                    <div align="center">{$page2}</div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+{/block}

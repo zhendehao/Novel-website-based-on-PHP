@@ -1,0 +1,46 @@
+
+<header>
+    <div class="top-info">
+        <div class="inner">
+            <h1 title="基于php的电子书推荐与阅读系统" class="logo"><a href="/">基于php的电子书推荐与阅读系统</a></h1>
+            <form action="/search/" method="get" id="frm-search">
+                <input type="text" name="q" maxlength="60" size="22" value="" placeholder="搜索电子书" autocomplete="off" id="input-query">
+                <input type="submit" value="搜索" id="btn-search">
+            </form>
+        </div>
+    </div>
+    <nav class="nav nav-store">
+        <div class="inner">
+            <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" class="nav-main items">
+
+                <li>
+                    <a href="/index.php" itemprop="url"><span itemprop="name">网站首页</span></a>
+                </li>
+                <li>
+                    <a href="{:url('member/member/index')}" itemprop="url"><span itemprop="name">个人主页</span></a>
+                </li>
+                <li>
+                    <a href="{:url('member/member/bookshelf')}" itemprop="url"><span itemprop="name">书架</span></a>
+                </li>
+                <li>
+                    <a href="{:url('member/member/notice')}" itemprop="url"><span itemprop="name">消息</span></a>
+                    {if condition="$infoNum>0"}
+                    <div class="data-num">{$infoNum}</div>
+                    {/if}
+                </li>
+
+            </ul>
+            <ul class="items items-minor user-info">
+                <li>
+                    <span class="login isLogin">
+                        <div class="user-info" style="float:right;">
+                            <div class="thumb" style="width:30px;height: 30px;float: left;margin: 0 5px;border-radius: 28px"><img src="{:urldecode($Think.session.thumb)}"></div>
+                            <span class="label">用户名:</span><span class="labeled-text">{$Think.session.nickname}</span>
+                            <span class="label"><a class="logout" href="{:url('index/logout')}">退出</a></span>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

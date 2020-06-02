@@ -1,0 +1,79 @@
+<div class="g-hdw">
+    <header>
+        <div class="top-info">
+            <div class="inner">
+                <h1 title="基于php的电子书推荐与阅读系统" class="logo"><a href="/">基于php的电子书推荐与阅读系统</a></h1>
+                <form action="/search/" method="get" id="frm-search">
+                    <input type="text" name="q" maxlength="60" size="22" value="" placeholder="搜索电子书" autocomplete="off" id="input-query">
+                    <input type="submit" value="搜索" id="btn-search">
+                </form>
+            </div>
+        </div>
+        <nav class="nav nav-store">
+            <div class="inner">
+                <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement" class="nav-main items">
+                    <li>
+                        <a href="/index.php" itemprop="url"><span itemprop="name">首页</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10101" itemprop="url"><span itemprop="name">流行小说</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10102" itemprop="url"><span itemprop="name">国外小说</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10103" itemprop="url"><span itemprop="name">社科人文</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10104" itemprop="url"><span itemprop="name">国学名著</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10105" itemprop="url"><span itemprop="name">儿童读物</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10108" itemprop="url"><span itemprop="name">经济管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10107" itemprop="url"><span itemprop="name">纪实传记</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10106" itemprop="url"><span itemprop="name">杂文选集</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10109" itemprop="url"><span itemprop="name">外语读本</span></a>
+                    </li>
+                    <li>
+                        <a href="/index.php/category/10110" itemprop="url"><span itemprop="name">成功励志</span></a>
+                    </li>
+                </ul>
+                <ul class="items items-minor user-info">
+                    {if $Think.session.role==null}
+                        <li>
+                            <a href="{:url('member/index/login')}" class="login isLogin">会员登录</a>
+                        </li>
+                        <li>
+                            <a href="{:url('author/index/login')}" class="login isLogin">作者登录</a>
+                        </li>
+                    {else /}
+
+                    {if $Think.session.role=='admin'}
+                        <li>
+                            <div class="thumb" style="width:30px;height: 30px;float: left;margin: 0 5px;border-radius: 28px"><img src="{:urldecode($Think.session.thumb)}"></div>
+                            <span class="label">管理员:</span><a href="{:url($Think.session.role.'/user/index')}">{$Think.session.nickname}</a>
+                        </li>
+                    {else /}
+                        <li>
+                            <div class="thumb" style="width:30px;height: 30px;float: left;margin: 0 5px;border-radius: 28px"><img src="{:urldecode($Think.session.thumb)}"></div>
+                            <span class="label">昵称:</span><a href="{:url($Think.session.role.'/'.$Think.session.role.'/index')}">{$Think.session.nickname}</a>
+                        </li>
+                    {/if}
+                        <li>
+                            <a class="logout" href="{:url($Think.session.role.'/index/logout')}">退出</a>
+                        </li>
+                    {/if}
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>

@@ -1,0 +1,39 @@
+{extend name="public@admin_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@admin_aside" /}
+    <div>
+        <article class="col col10">
+            <div class="bd category-list">
+                <div class="item" align="center">
+                    <form action="/search/" method="get" id="frm-search">
+                        <input type="text" name="q" maxlength="60" size="20" value="" placeholder="搜索电子书" autocomplete="off" id="admin-query">
+                        <input type="submit" value="搜索" id="btn-search">
+                    </form>
+                </div>
+                <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                <ul>
+                    {volist name="bookList" id="book"}
+                    <li class="item">
+                        <div class="cover shadow-cover"><a href="/index.php/article/{$book.article_id}" target="_blank"><img src="{$book.thumb}" itemprop="image"></a></div>
+                        <div class="info"><span class="price-tag"></span>
+                            <div class="title">{$book.title}</div>
+                            <div class="author"><span class="orig-author">作者：{$book->author->nickname}</span></div>
+                            <p><span class="category"><span class="label">类别：</span><span class="labeled-text"><span itemprop="genre">{$book.category_id}</span></span></span></p>
+                            <p><span><span class="label"><a href="{:url('admin/user/push',array('article_id'=>$book.article_id))}" >推送</a></span><span class="labeled-text"><a href="{:url('author/del/del',array('article_id'=>$book.article_id,'force'=>1))}">删除文章</a></span></span></p>
+                        </div>
+                    </li>
+                {/volist}
+                </ul>
+                <div align="center">{$page}</div>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+{/block}

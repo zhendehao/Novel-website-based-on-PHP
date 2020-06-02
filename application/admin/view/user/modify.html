@@ -1,0 +1,36 @@
+{extend name="public@admin_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@admin_aside" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <form class="modify" action="{:url('admin/user/changePass')}" method="post">
+                <input type="hidden" name="role" value="admin">
+                <input type="hidden" name="role_id" value="{$Think.session.role_id}">
+                <input type="hidden" name="return" value="{:urlencode('user/modify')}">
+                <div class="item">
+                    <label class="label">旧密码：</label>
+                    <input class="labeled-text" type="password" placeholder="旧密码" name="oldPass">
+                </div>
+                <div class="item">
+                    <label class="label">新密码：</label>
+                    <input class="labeled-text" type="password" placeholder="新密码" name="newPass">
+                </div>
+                <div class="item">
+                    <label class="label">确定密码：</label>
+                    <input class="labeled-text" type="password" name="check">
+                </div>
+                <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                <div class="item submit" align="center">
+                    <input type="submit" value="修改" class="btn btn-green">
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+
+{/block}

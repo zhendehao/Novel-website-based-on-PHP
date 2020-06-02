@@ -1,0 +1,48 @@
+{extend name="public@admin_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@admin_aside" /}
+    <div>
+        <article class="col col10">
+            <div class="bd category-list">
+                <div class="item" align="center">
+                    <form action="/search/" method="get" id="frm-search">
+                        <input type="text" name="q" maxlength="60" size="22" value="" placeholder="搜索用户" autocomplete="off" id="admin-query">
+                        <input type="submit" value="搜索" id="btn-search">
+                    </form>
+                </div>
+                <form class="user-info" action="{:url('admin/user/checkInfo')}">
+
+                    <div class="item user-name">
+                        <label class="label">接收人：</label>
+                        <input hidden value="{$role_id}" name="recipient">
+                        <input class="labeled-text" value="{$nickname}" name="nickname" >
+                    </div>
+                    <div class="item user-id">
+                        <label class="label">主题：</label>
+                        <input class="labeled-text" name="title" placeholder="请输入主题">
+                    </div>
+                    <div class="item user-sign">
+                        <label class="label">内容：</label>
+                        <input class="labeled-text" style="width: 500px;height: 50px;" name="content">
+                    </div>
+                    <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                    <div class="item submit" align="center">
+                        <input type="submit" value="发送" class="btn btn-green">
+                    </div>
+                </form>
+                <div class="item" align="center" style="display: none">
+                    <button class="member btn">会员</button>
+                    <button class="author btn">作者</button>
+                </div>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+{/block}

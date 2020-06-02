@@ -1,0 +1,41 @@
+{extend name="public@author_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/author/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/author/css/booklist.css" />
+
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@author_aside" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <form class="user-info" method="post" action="{:url('author/changeInfo')}">
+                <div class="item user-photo" style="align-items: center">
+                    <label class="label" style="float: left;">头像：</label>
+                    <div class="labeled-text"><a href="{:url('author/thumb')}" class="cover"><img src="{:urldecode($Think.session.thumb)}"></a></div>
+                </div>
+                <div class="item user-id">
+                    <label class="label">账号：</label>
+                    <label class="labeled-text">{$Think.session.role_id}</label>
+                    <input type="hidden" name="role" value="author">
+                    <input type="hidden" name="role_id" value="{$Think.session.role_id}">
+                    <input type="hidden" name="return" value="{:urlencode('author/index')}">
+                </div>
+                <div class="item user-name">
+                    <label class="label">笔名：</label>
+                    <input class="labeled-text" placeholder="{$Think.session.nickname}" name="nickname">
+                </div>
+
+                <div class="item user-sign">
+                    <label class="label">我的签名：</label>
+                    <input class="labeled-text" placeholder="{$Think.session.sign}"  type="text" style="width: 500px;height: 50px;" name="sign">
+                </div>
+                <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                <div class="item submit" align="center">
+                    <input type="submit" value="保存" class="btn btn-green">
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+{/block}

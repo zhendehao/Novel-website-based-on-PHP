@@ -1,0 +1,29 @@
+{extend name="public@author_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/author/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/author/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@author_notice" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <ul>
+                <li class="item">
+                    <div class="system-notice"><p class="theme">@我：</p> </div>
+                </li>
+                {volist name="infoList" id="info"}
+                <li class="item">
+                    <div class="notice"><p class="theme notice-theme">{$info.title}</p> <span class="content">{$info.content}</span> </div>
+                </li>
+                {/volist}
+                <li class="item">
+                    <div class="notice"><p class="theme notice-theme">你阿爸揾你</p> <span class="content">叫你吃饭啦</span></div>
+                </li>
+            </ul>
+
+            <div align="center">{$page}</div>
+        </div>
+    </article>
+</div>
+{/block}

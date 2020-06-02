@@ -1,0 +1,88 @@
+{extend name="public@author_base" /}
+{block name="css"}
+<link rel="stylesheet" href="/static/author/css/index.css">
+<link rel="stylesheet" href="/static/author/css/bookshow.css">
+{/block}
+{block name="js"}
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#avatsel1").click(function(){
+            $("input[type='file']").trigger('click');
+        });
+        $("#avatval").click(function(){
+            $("input[type='file']").trigger('click');
+        });
+        $("input[type='file']").change(function(){
+            $("#avatval").val($(this).val());
+        });
+    });
+</script>
+{/block}
+
+{block name="main"}
+<div class="main" itemscope="" itemtype="http://schema.org/Book" itemprop="mainEntity">
+    <article class="col col9 app-article">
+        <div class="article-profile-section article-profile-primary ">
+            <div class="cover shadow-cover"><img class="book-cover" width="140px" src="{$details.thumb}" alt="" itemprop="image"></div>
+            <div class="article-profile-bd">
+
+                <h1 itemprop="name" class="article-title">{$details.title}</h1>
+                <div class="article-meta">
+                    <p class="category"><span class="label">类别：</span><span class="labeled-text">{$details.category_id}</span></p>
+                    <p class="views"><span class="label">点击：</span><span class="labeled-text" id="j-views">{$fav.views}</span></p>
+                    <p class="favs"><span class="label">收藏：</span><span class="labeled-text" id="j-favs">{$fav.favorite}</span></p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="last-article">
+        <div class="market-indent clearfix">
+            <h2>图书最新章节 · · · · · ·</h2>
+            <div class="directory" >
+                <ul class="f-cb more book j-directory" style="height: 120px;">
+                    {if condition="$chapterList!=0"}
+
+                    <li class="item j-chapter even"><a href="/index.php/chapter/{$chapterList[0]->chapter_url}"><span class="title-2">第{$chapterList[0]->chapter_id}章 {$chapterList[0]->title}</span><span class="sep"></span></a></li>
+                    {if condition="$chapterList[1]"}
+                    <li class="item j-chapter even last"><a href="/index.php/chapter/{$chapterList[1]->chapter_url}"><span class="title-2">第{$chapterList[1]->chapter_id}章 {$chapterList[1]->title}</span><span class="sep"></span></a></li>
+                    {/if}{
+                    {if condition="$chapterList[2]"}
+                    <li class="item j-chapter odd"><a href="/index.php/chapter/{$chapterList[2]->chapter_url}"><span class="title-2">第{$chapterList[2]->chapter_id}章 {$chapterList[2]->title}</span><span class="sep"></span></a></li>
+                    {/if}
+                    {if condition="$chapterList[3]"}
+                    <li class="item j-chapter odd last"><a href="/index.php/chapter/{$chapterList[3]->chapter_url}"><span class="title-2">第{$chapterList[3]->chapter_id}章 {$chapterList[3]->title}</span><span class="sep"></span></a></li>
+                    {/if}
+                    {else /}
+                        <p>还没有添加图书章节，赶快添加吧</p>
+                    {/if}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="item" style="color: red;font-size: 16px;">{$info}</span>
+    <form action="{:url('author/author/checkChapter')}" method="post" class="new-article-upload" enctype="multipart/form-data">
+        <input hidden class="article" name="article_id" value="{$details.article_id}">
+        <span class="item"><span class="left"><p class="label" >章节数：</p></span><span class="left"><input id="article-num" type="text"  name="chapter_id" value="{$details.last_chapter_id+1}" ></span></span>
+        <span class="item"><span class="left"><p class="label" >章节名称：<span style="color: red">*</span> </p></span><span class="left"><input id="article" type="text" name="title"></span></span>
+        <span class="item" style="display: block">
+            <span class="item">
+                <span class="left"><p class="label" >章节内容：</p></span>
+
+                <div class="input-file item" style="float: right">
+                    <input type="text" id="avatval" placeholder="请选择文件···" readonly="readonly" />
+                    <input type="file" name="file" id="avatar"/>
+                    <a href="javascript:void(0);" class="btn-select" id="avatsel1">选择文件</a>
+
+                </div>
+            </span>
+            <textarea id="content" name="text" type="text" cols="3" rows="4"></textarea>
+        </span>
+        <span class="item" style="width: 760px">
+            <span class="left"><input type="submit" value="提交" id="submit" class="btn btn-green"></span>
+            <input type="reset" value="重置" id="reset" class="btn btn-gray">
+        </span>
+    </form>
+
+</div>
+{/block}

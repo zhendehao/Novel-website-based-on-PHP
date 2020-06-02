@@ -1,0 +1,94 @@
+<div class="comment">
+    <div class="comment-head">
+        <span class="results">{$comments|count}</span><span>评论</span>
+    </div>
+    <div class="list-item comment-send">
+        <div class="user-face">
+            {if condition="$Think.session.thumb"}
+            <img class="user-head" src="{$Think.session.thumb}">
+            {else /}
+            <img class="user-head" src="/static/book/images/default.png">
+            {/if}
+        </div>
+        <div class="textarea-container">
+            <i class="ipt-arrow"></i>
+            <form class="comment" action="{:url('member/member/publish')}" >
+                <input name="article_id" value="{$details.article_id}" hidden />
+                <input name="reply_id" value="0" hidden />
+                <input  name="content" type="text"  placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。" class="ipt-txt" />
+                <input type="submit" class="btn" value="发表评论">
+            </form>
+        </div>
+    </div>
+    {volist name="comments" id="com"}
+        {if condition="$com.reply_id==0"}
+            <div class="list-item">
+                <div class="user-face">
+                    <img class="user-head" src="{$com->user->thumb}">
+                </div>
+                <div class="content-wrap">
+                    <span class="user-name">{$com->user->nickname}</span>
+                    <p class="text">{$com.content}</p>
+                    <div class="info">
+                        <span class="comment-info time">{$com.create_time}</span>
+                        <span class="comment-info reply replyCom">回复</span>
+                        {if condition="$Think.session.role_id==$com.user_id || $Think.session.role=='admin'"}
+                        <form class="del-comment" action="{:url('member/member/delComment')}" method="post" style="display: inline-block">
+                            <input hidden name="article_id" value="{$com.article_id}" >
+                            <input hidden name="comment_id" value="{$com.comment_id}" >
+                            <input hidden name="reply_id" value="0" >
+                            <span class="comment-info del delCom">删除</span>
+                        </form>
+
+                        {/if}
+                    </div>
+                    {foreach $com->reply as $reply}
+                        <div class="reply-wrap">
+                            <div class="user-face"><img class="user-head" src="{$reply->user->thumb}"></div>
+                            <span class="user-name">{$reply->user->nickname}</span>
+                            <p class="text">{$reply.content}</p>
+                            <div class="info">
+                                <span class="comment-info time">{$reply.create_time}</span>
+                                <span class="comment-info reply replyCom">回复</span>
+                                {if condition="$Think.session.role_id==$reply.user_id || $Think.session.role=='admin'"}
+                                <form class="del-comment" action="{:url('member/member/delComment')}" method="post" style="display: inline-block">
+                                    <input hidden name="article_id" value="{$reply.article_id}" >
+                                    <input hidden name="comment_id" value="{$reply.comment_id}" >
+                                    <input hidden name="reply_id" value="{$reply.reply_id}" >
+                                    <span class="comment-info del delCom" >删除</span>
+                                </form>
+                                {/if}
+                            </div>
+                        </div>
+                    {/foreach}
+                </div>
+
+                <div class="reply-wrap" id="reply" style="display: none">
+                    <div class="comment-send">
+                        <div class="user-face">
+                            {if condition="$Think.session.thumb"}
+                                <img class="user-head" src="{$Think.session.thumb}">
+                            {else /}
+                                <img class="user-head" src="/static/book/images/default.png">
+                            {/if}
+                        </div>
+                        <div class="textarea-container">
+                            <i class="ipt-arrow"></i>
+                            <form class="comment" action="{:url('member/member/publish')}" >
+                                <input name="article_id" value="{$details.article_id}" hidden />
+                                <input name="reply_id" value="{$com.comment_id}" hidden />
+                                <input  name="content" type="text"  placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。" class="ipt-txt" />
+                                <input type="submit" class="btn" value="发表评论">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/if}
+    {/volist}
+    <div class="list-item">
+
+    </div>
+
+</div>
+

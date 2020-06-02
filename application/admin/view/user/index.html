@@ -1,0 +1,40 @@
+{extend name="public@admin_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@admin_aside" /}
+    <div>
+        <article class="col col10">
+            <div class="bd category-list">
+                <div class="info">
+                    <span style="font-size:20px;color: red">{$info}</span>
+
+                </div>
+                <form class="user-info" action="{:url('User/changeNickname')}" method="post">
+
+                    <div class="item user-id">
+                        <label class="label">账号：</label>
+                        <label class="labeled-text">{$Think.session.role_id}</label>
+                        <input name="role" value="admin" type="hidden">
+                        <input name="role_id" value="{$Think.session.role_id}" type="hidden">
+                        <input name="return" value="{:urlencode('admin/index/login')}" type="hidden">
+
+                    </div>
+                    <div class="item user-name">
+                        <label class="label">管理员：</label>
+                        <input class="labeled-text" placeholder="{$Think.session.nickname}" name="nickname">
+                    </div>
+                    <div class="item submit" align="center">
+                        <input type="submit" value="保存" class="btn btn-green">
+                    </div>
+                </form>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+{/block}

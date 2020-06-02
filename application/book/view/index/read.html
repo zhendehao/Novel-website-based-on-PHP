@@ -1,0 +1,46 @@
+{extend name="public@base" /}
+{block name="css"}
+    <link type="text/css" rel="stylesheet" href="/static/index/css/gen.css">
+    <link type="text/css" rel="stylesheet" href="/static/book/css/chapter.css">
+{/block}
+    {block name="main"}
+
+
+<div class="panel" id="J_Panel">
+    <div class="chapter-title">第{$content.chapter_id}章 {$content.title}</div>
+    <ul class="panel-list">
+        <li class="cata-trigger"><a href="/index.php/article/{$content.article_id}" title="回到目录">目录</a></li>
+    </ul>
+
+</div>
+<div style="display: block;" class="horizontal-player">
+    <div class="prev-turn" id="J_PrevTurn">
+        <a class="" href="javascript:void(0)" hidefocus="true"></a>
+    </div>
+    <div class="article-wrap">
+        <div class="article J_Article">
+            <div class="banner_660 ad660_01">
+                <script type="text/javascript">ad_660_01();</script>
+            </div>
+            <div class="article-content">
+                <h1 class="page-title">第{$content.chapter_id}章 {$content.title}</h1>
+                <div id="J-content" style="font-size: 16px;">
+                    {$content.content}
+                </div>
+            </div>
+            <div class="banner_660 ad660_02">
+                <script type="text/javascript">ad_660_02();</script>
+            </div>
+            <div class="article-footer">
+                <a href="index.html">上一章</a>
+                <a href="index.html">目录</a>
+                <a href="460869.html">下一章</a>
+            </div>
+        </div>
+    </div>
+    <div class="next-turn" id="J_NextTurn">
+        <a class="" href="javascript:void(0)" hidefocus="true"></a>
+    </div>
+</div>
+
+{/block}

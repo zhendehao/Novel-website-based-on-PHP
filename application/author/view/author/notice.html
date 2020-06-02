@@ -1,0 +1,27 @@
+{extend name="public@author_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/author/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/author/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@author_notice" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <ul>
+                <li class="item">
+                    <div class="system-notice"><p class="theme">系统通知：</p> </div>
+                </li>
+                {volist name="noticeList" id="notice"}
+                <li class="item">
+                    <div class="notice"><p class="theme notice-theme">主题：{$notice.title}</p> <span class="content">&emsp;{$notice.content}</span> </div>
+                    <div class="time right"><span>发表时间：</span>{$notice.create_time}</div>
+                </li>
+                {/volist}
+            </ul>
+
+            <div align="center">{$page}</div>
+        </div>
+    </article>
+</div>
+{/block}

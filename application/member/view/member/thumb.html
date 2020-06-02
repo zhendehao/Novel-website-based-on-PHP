@@ -1,0 +1,50 @@
+{extend name="public@member_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/member/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/member/css/booklist.css" />
+<link rel="stylesheet" href="/static/book/css/bookshow.css">
+{/block}
+{block name="js"}
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#avatsel1").click(function(){
+            $("input[type='file']").trigger('click');
+        });
+        $("#avatval").click(function(){
+            $("input[type='file']").trigger('click');
+        });
+        $("input[type='file']").change(function(){
+            $("#avatval").val($(this).val());
+        });
+    });
+</script>
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@member_aside" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <form class="user-info" method="post" action="{:url('member/changeThumb')}" enctype="multipart/form-data">
+                <input type="hidden" name="role" value="member">
+                <input type="hidden" name="role_id" value="{$Think.session.role_id}">
+                <div class="item user-photo" style="float: left" >
+                    <label class="label" style="float: left;">头像：</label>
+                    <div class="cover"><img src="{:urldecode($Think.session.thumb)}"></div>
+                </div>
+                <span class="item" style="color: red;font-size: 12px;">上传的图片应小于1M，后缀为jpg、png、gif</span>
+                <div class="input-file item" style="float: left;display: block">
+                    <input type="text" id="avatval" placeholder="请选择文件···" readonly="readonly" />
+                    <input type="file" name="image" id="avatar"/>
+                    <a href="javascript:void(0);" class="btn-select" id="avatsel1">选择文件</a>
+
+                </div>
+                <span class="item" style="color: red;font-size: 24px;">{$info}</span>
+                <div class="item submit" align="center">
+                    <input type="submit" value="保存" class="btn btn-green">
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+{/block}

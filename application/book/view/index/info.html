@@ -1,0 +1,120 @@
+ {extend name="public@base" /}
+    {block name="css"}
+    <link rel="stylesheet" href="/static/index/css/gen.css">
+    <link rel="stylesheet" href="/static/book/css/bookshow.css">
+    <link rel="stylesheet" href="/static/book/css/comment.css">
+    {/block}
+ {block name="js"}
+ <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+ <script type="text/javascript">
+     
+         $(function(){
+             $(".replyCom").click(function () {
+                     $(this).closest(".list-item").children("#reply").toggle();
+
+             });
+             $(".delCom").click(function () {
+                     $(this).parent(".del-comment").submit();
+
+             });
+         });
+
+         
+     
+ </script>
+ {/block}
+
+    {block name="main"}
+    <div class="main" itemscope="" itemtype="http://schema.org/Book" itemprop="mainEntity">
+        <article class="col col9 app-article">
+            <div class="article-profile-section article-profile-primary ">
+                <div class="cover shadow-cover"><img class="book-cover" width="140px" src="{$details.thumb}" alt="" itemprop="image"></div>
+                <div class="article-profile-bd">
+                    <h1 itemprop="name" class="article-title">{$details.title}</h1>
+
+                    <div class="article-meta">
+                        <meta itemprop="bookFormat" content="http://schema.org/EBook">
+                        <link itemprop="author" href="#author">
+                        <p class="author"><span class="label">作者：</span><span class="labeled-text"><a class="author-item" href="/index.php/portfolio/{$details.author_id}">{$details->author->nickname}</a></span></p>
+                        <p class="category"><span class="label">类别：</span><span class="labeled-text"><a href="/index.php/category/{$details->getData('category_id')}">{$details.category_id}</a></span></p>
+                        <p class="views"><span class="label">点击：</span><span class="labeled-text" id="j-views">{$fav.views}</span></p>
+                        <p class="favs"><span class="label">收藏：</span><span class="labeled-text" id="j-favs">{$fav.favorite}</span></p>
+                    </div>
+                </div>
+                <div class="profile-reading-actions">
+                    <span class="item" style="color: red;font-size: 16px; float: right">{$info}</span>
+
+                    {if session('role_id')==$details.author_id }
+                    <a href="{:url('author/author/modify',array('article_id'=>$details.article_id))}" class="btn btn-green book-favs requireLogin">修改信息</a>
+                    {else /}
+                    <a href="{:url('member/member/addBook',array('article_id'=>$details.article_id))}" class="btn btn-read book-favs requireLogin">加入书架</a>
+                    {/if}
+                </div>
+            </div>
+            <div class="article-profile-intro article-abstract collapse-context">
+                <h2>图书简介 · · · · · ·</h2>
+                <div itemprop="description" data-max-lines="12" data-line-height="24" class="abstract-full collapse-content">
+                    <div class="info">
+                        <p><!--Saxue Copy From--></p>
+                        <p>{$details.summary}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="market-indent clearfix">
+                <h2>图书目录 · · · · · ·</h2>
+                <div class="directory">
+                    <ul class="f-cb more book j-directory" style="height: 120px;">
+                        {foreach $details->chapter as $key=>$chapter}
+                            {if condition="$key%4==0"}
+                        <li class="item j-chapter even"><a href="/index.php/chapter/{$chapter.chapter_url}"><span class="title-2">第{$chapter.chapter_id}章 {$chapter.title}</span><span class="sep"></span></a></li>
+                            {/if}
+                            {if condition="$key%4==1"}
+                        <li class="item j-chapter even last"><a href="/index.php/chapter/{$chapter.chapter_url}"><span class="title-2">第{$chapter.chapter_id}章 {$chapter.title}</span><span class="sep"></span></a></li>
+                            {/if}
+                            {if condition="$key%4==2"}
+                        <li class="item j-chapter odd"><a href="/index.php/chapter/{$chapter.chapter_url}"><span class="title-2">第{$chapter.chapter_id}章 {$chapter.title}</span><span class="sep"></span></a></li>
+                            {/if}
+                            {if condition="$key%4==3"}
+                        <li class="item j-chapter odd last"><a href="/index.php/chapter/{$chapter.chapter_url}"><span class="title-2">第{$chapter.chapter_id}章 {$chapter.title}</span><span class="sep"></span></a></li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+
+                </div>
+            </div>
+            {include file="public@comment"}
+        </article>
+        <aside class="col col4">
+            <section>
+                <div class="hd">
+                    <h2>图书标签 · · · · · ·</h2>
+                </div>
+                <div class="bd">
+                    <meta itemprop="keywords" content="李渔,闲情偶寄,古典文学,随笔,散文,">
+                    <ul class="tags">
+                        {foreach $tags as $tag}
+                        <li><a href="#"><span class="tag-name">{$tag}</span></a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="hd"><h2>你可能喜欢 · · · · · ·</h2></div>
+                <ul class="reader-actions">
+                    {volist name="likes" id="book"}
+                    <li class="u-bookitm">
+                        <div class="book">
+                            <div class="cover"><a href="/index.php/article/{$book.article_id}" hidefocus="hidefocus" target="_blank"><img src="{$book.thumb}"></a></div>
+                        </div>
+                        <div class="info">
+                            <a href="/index.php/article/{$book.article_id}" class="title" hidefocus="hidefocus" target="_blank">{$book.title}</a><div class="u-author"><span>{$book->author->nickname}</span></div>
+                        </div>
+                    </li>
+                    {/volist}
+
+                </ul>
+            </section>
+        </aside>
+    </div>
+ {/block}

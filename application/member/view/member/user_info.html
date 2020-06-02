@@ -1,0 +1,27 @@
+{extend name="public@member_base" /}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="/static/member/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/static/member/css/booklist.css" />
+{/block}
+{block name="main"}
+<div class="main books">
+    {include file="public@member_notice" /}
+    <article class="col col10">
+        <div class="bd category-list">
+            <ul>
+                <li class="item">
+                    <div class="system-notice"><p class="theme">@我：</p> </div>
+                </li>
+                {volist name="infoList" id="info"}
+                <li class="item">
+                    <div class="notice"><p class="theme notice-theme">主题：{info.title}</p> <span class="content">&emsp;{info.content}</span> </div>
+                    <div class="time right"><span>发表时间：</span>{info.create_time}</div>
+                </li>
+                {/volist}
+            </ul>
+
+            <div align="center">{$page}</div>
+        </div>
+    </article>
+</div>
+{/block}
